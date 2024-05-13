@@ -79,19 +79,23 @@ def main():
         for i, option in enumerate(options, 1):
             print("{}. {}".format(i, color_codes[option] + option + "\033[0m"))
 
-        # Ask for user's choice
-        choice = input("Enter your choice (1, 2, or 3): ")
-        try:
-            choice_index = int(choice) - 1
-            user_guess = options[choice_index]
-        except (ValueError, IndexError):
-            print("Invalid choice! Please enter 1, 2, or 3.")
-            continue
+        # Allow the player to guess five times
+        for _ in range(5):
+            choice = input("Enter your choice (1, 2, or 3): ")
+            try:
+                choice_index = int(choice) - 1
+                user_guess = options[choice_index]
+            except (ValueError, IndexError):
+                print("Invalid choice! Please enter 1, 2, or 3.")
+                continue
 
-        if user_guess == correct_answer:
-            print("Congratulations! You guessed it right. {} is the resulting color!".format(color_codes[correct_answer] + correct_answer + "\033[0m"))
+            if user_guess == correct_answer:
+                print("Congratulations! You guessed it right. {} is the resulting color!".format(color_codes[correct_answer] + correct_answer + "\033[0m"))
+                break
+            else:
+                print("Sorry, that's not correct. The resulting color is {}.".format(color_codes[correct_answer] + correct_answer + "\033[0m"))
         else:
-            print("Sorry, that's not correct. The resulting color is {}.".format(color_codes[correct_answer] + correct_answer + "\033[0m"))
+            print("You've used all your guesses. The correct answer was {}.".format(color_codes[correct_answer] + correct_answer + "\033[0m"))
 
         play_again = input("Do you want to play again? (y/n): ")
 
