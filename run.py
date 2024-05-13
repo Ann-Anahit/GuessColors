@@ -61,8 +61,13 @@ def main():
     print("Welcome to the Color Mixing Game!")
     print("Try to guess the resulting color when you mix two colors.")
 
- # Infinite loop until the user wants to exit
-    while True:
+play_again = 'y'
+while play_again.lower() == 'y':
+    # Initialize guess counter
+        guess_count = 0
+
+    # Infinite loop for a single game
+    while guess_count < 6:
         # Pick two random colors
         color1 = random.choice(colors)
         color2 = random.choice(colors)
@@ -81,5 +86,11 @@ def main():
         else:
             print("Sorry, that's not correct. The resulting color is {}.".format(color_codes[result] + result + "\033[0m"))
 
+        guess_count += 1
+
+       play_again = input("Do you want to play again? (y/n): ")
+
+    print("Thank you for playing! See you soon!") 
+           
 if __name__ == "__main__":
     main()
