@@ -50,4 +50,10 @@ def main():
             print("Thanks for playing!")
             break
 
-      
+        result = mix_colors(color1, color2)
+
+        if guess == result:
+            print("Congratulations! You guessed it right. {} is the resulting color!".format(color_codes[result] + result + "\033[0m"))
+        else:
+            print("Sorry, that's not correct. The resulting color is {}.".format(color_codes[result] + result + "\033[0m"))
+
