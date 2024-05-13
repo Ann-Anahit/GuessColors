@@ -21,3 +21,14 @@ color_codes = {
     "goldenrod": "\033[38;5;136m",    # Goldenrod color
     "amber": "\033[38;5;202m"         # Amber color
 }
+
+def mix_colors(color1, color2):
+    """
+    Function to mix two colors and return the resulting color.
+    """
+    # Sort the colors to handle different orderings
+    colors = tuple(sorted([color1, color2]))
+    if colors in color_combinations:
+        return color_combinations[colors]
+    else:
+        return "Sorry, I don't know what color you get by mixing {} and {}.".format(color1, color2)
