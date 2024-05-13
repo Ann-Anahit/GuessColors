@@ -51,7 +51,7 @@ def mix_colors(color1, color2):
     if colors in color_combinations:
         return color_combinations[colors]
     else:
-        return "Sorry, I don't know what color you get by mixing {} and {}.".format(color1, color2)
+        return None  # Return None if the combination is not in the dictionary
 
 def main():
     print("Welcome to the Color Mixing Game!")
@@ -59,31 +59,35 @@ def main():
 
     play_again = 'y'
     while play_again.lower() == 'y':
-        # Initialize guess counter
-        guess_count = 0
+        # Pick two random colors
+        color1 = random.choice(colors)
+        color2 = random.choice(colors)
 
-        # Infinite loop for a single game
-        while guess_count < 6:
-            # Pick two random colors
-            color1 = random.choice(colors)
-            color2 = random.choice(colors)
+        # Determine the correct answer and two incorrect answers
+        correct_answer = mix_colors(color1, color2)
+        incorrect_answers = [color for color in colors if color != correct_answer]
+        random.shuffle(incorrect_answers)
+        options = [correct_answer] + incorrect_answers[:2]
+        random.shuffle(options)
 
-            print("You mix {} and {}...".format(color_codes[color1] + color1 + "\033[0m", color_codes[color2] + color2 + "\033[0m"))
-            guess = input("What color do you think you'll get? (Type 'exit' to quit): ").lower()
+        print("You mix {} and {}...".format(color_codes[color1] + color1 + "\033[0m", color_codes[color2] + color2 + "\033[0m"))
+        print("What color do you think you'll get?")
+        for i, option in enumerate(options, 1):
+            print("{}. {}".format(i, color_codes[option] + option + "\033[0m"))
 
-            if guess == "exit":
-                print("Thanks for playing!")
-                return
+        # Ask for user's choice
+        choice = input("Enter your choice (1, 2, or 3): ")
+        try:
+            choice_index = int(choice) - 1
+            user_guess = options[choice_index]
+        except (ValueError, IndexError):
+            print("Invalid choice! Please enter 1, 2, or 3.")
+            continue
 
-            result = mix_colors(color1, color2)
-
-            if guess == result:
-                print("Congratulations! You guessed it right. {} is the resulting color!".format(color_codes[result] + result + "\033[0m"))
-                break  # Exit the inner loop if the guess is correct
-            else:
-                print("Sorry, that's not correct. The resulting color is {}.".format(color_codes[result] + result + "\033[0m"))
-            
-            guess_count += 1
+        if user_guess == correct_answer:
+            print("Congratulations! You guessed it right. {} is the resulting color!".format(color_codes[correct_answer] + correct_answer + "\033[0m"))
+        else:
+            print("Sorry, that's not correct. The resulting color is {}.".format(color_codes[correct_answer] + correct_answer + "\033[0m"))
 
         play_again = input("Do you want to play again? (y/n): ")
 
