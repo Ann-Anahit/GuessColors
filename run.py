@@ -13,11 +13,6 @@ color_codes = {
     "maroon": "\033[38;5;88m",   # Maroon color
     "olive": "\033[38;5;58m",    # Olive color
     "navy": "\033[38;5;21m",     # Navy color
-    "forest green": "\033[38;5;28m",  # Forest Green color
-    "burnt umber": "\033[38;5;88m",   # Burnt Umber color
-    "burnt sienna": "\033[38;5;130m", # Burnt Sienna color
-    "goldenrod": "\033[38;5;136m",    # Goldenrod color
-    "amber": "\033[38;5;202m"         # Amber color
 }
 
 # List of colors
@@ -32,14 +27,9 @@ color_combinations = {
     ("blue", "green"): "teal",
     ("yellow", "green"): "lime",
     ("red", "orange"): "maroon",
-    ("blue", "orange"): "burnt sienna",
     ("yellow", "orange"): "amber",
     ("purple", "green"): "olive",
     ("purple", "orange"): "bronze",
-    ("purple", "yellow"): "goldenrod",
-    ("blue", "indigo"): "navy",
-    ("green", "indigo"): "forest green",
-    ("orange", "indigo"): "burnt umber"
 }
 
 def mix_colors(color1, color2):
@@ -65,6 +55,10 @@ def main():
 
         # Determine the correct answer and two incorrect answers
         correct_answer = mix_colors(color1, color2)
+        if correct_answer is None:
+            print("Sorry, this color combination does not have a valid resulting color. Skipping this round.")
+            continue
+
         incorrect_answers = [color for color in colors if color != correct_answer]
         random.shuffle(incorrect_answers)
         options = [correct_answer] + incorrect_answers[:2]
