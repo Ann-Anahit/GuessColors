@@ -32,3 +32,22 @@ def mix_colors(color1, color2):
         return color_combinations[colors]
     else:
         return "Sorry, I don't know what color you get by mixing {} and {}.".format(color1, color2)
+
+def main():
+    print("Welcome to the Color Mixing Game!")
+    print("Try to guess the resulting color when you mix two colors.")
+
+ # Infinite loop until the user wants to exit
+    while True:
+        # Pick two random colors
+        color1 = random.choice(colors)
+        color2 = random.choice(colors)
+
+        print("You mix {} and {}...".format(color_codes[color1] + color1 + "\033[0m", color_codes[color2] + color2 + "\033[0m"))
+        guess = input("What color do you think you'll get? (Type 'exit' to quit): ").lower()
+
+        if guess == "exit":
+            print("Thanks for playing!")
+            break
+
+      
