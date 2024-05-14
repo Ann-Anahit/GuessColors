@@ -100,6 +100,10 @@ def main():
         print("Your score for this round: {}".format(round_score))  # Display round score
         print("Your total score: {}".format(total_score))  # Display total score
 
+        # Check if the player has achieved 3 correct answers
+        if correct_answers == 3:
+            print("You Win! Congratulations! Your score is 3/3.")
+
         play_again = input("Do you want to play again? (y/n): ")
 
     print("Thank you for playing! See you soon!")
