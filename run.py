@@ -46,7 +46,9 @@ def main():
     print("Try to guess the resulting color when you mix two colors.")
 
     play_again = 'y'
+    total_score = 0  # Initialize total score
     while play_again.lower() == 'y':
+        round_score = 0  # Initialize score for the current round
         # Pick two random colors
         color1 = random.choice(colors)
         color2 = random.choice(colors)
@@ -84,12 +86,17 @@ def main():
             if user_guess == correct_answer:
                 print("Congratulations! You guessed it right. {} is the resulting color!".format(color_codes[correct_answer] + correct_answer + "\033[0m"))
                 correct_guess = True
+                round_score += 1  # Increment score for correct guess
+                total_score += 1  # Increment total score
                 break
             else:
                 print("Sorry, that's not correct.")
 
         if not correct_guess:
             print("You've used all your guesses. The correct answer was {}.".format(color_codes[correct_answer] + correct_answer + "\033[0m"))
+
+        print("Your score for this round: {}".format(round_score))  # Display round score
+        print("Your total score: {}".format(total_score))  # Display total score
 
         play_again = input("Do you want to play again? (y/n): ")
 
