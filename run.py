@@ -30,6 +30,7 @@ color_combinations = {
     ("purple", "green"): "olive",
 }
 
+
 def mix_colors(color1, color2):
     """
     Function to mix two colors and return the resulting color.
@@ -49,6 +50,7 @@ def main():
     total_score = 0  # Initialize total score
     while play_again.lower() == 'y':
         round_score = 0  # Initialize score for the current round
+        correct_answers = 0  # Initialize the count of correct answers for the round
         # Pick two random colors
         color1 = random.choice(colors)
         color2 = random.choice(colors)
@@ -87,6 +89,7 @@ def main():
                 print("Congratulations! You guessed it right. {} is the resulting color!".format(color_codes[correct_answer] + correct_answer + "\033[0m"))
                 correct_guess = True
                 round_score += 1  # Increment score for correct guess
+                correct_answers += 1  # Increment correct answers count
                 total_score += 1  # Increment total score
                 break
             else:
