@@ -67,7 +67,9 @@ def main():
         print("You mix {} and {}...".format(color_codes[color1] + color1 + "\033[0m", color_codes[color2] + color2 + "\033[0m"))
         print("What color do you think you'll get?")
         for i, option in enumerate(options, 1):
-            print("{}. {}".format(i, color_codes[option] + option + "\033[0m"))
+            # Ensure option is a valid color
+            if option in color_codes:
+                print("{}. {}".format(i, color_codes[option] + option + "\033[0m"))
 
         # Allow the player to guess five times
         for _ in range(5):
