@@ -72,6 +72,7 @@ def main():
                 print("{}. {}".format(i, color_codes[option] + option + "\033[0m"))
 
         # Allow the player to guess five times
+        correct_guess = False
         for _ in range(5):
             choice = input("Enter your choice (1, 2, or 3): ")
             try:
@@ -83,10 +84,11 @@ def main():
 
             if user_guess == correct_answer:
                 print("Congratulations! You guessed it right. {} is the resulting color!".format(color_codes[correct_answer] + correct_answer + "\033[0m"))
+                correct_guess = True
                 break
             else:
-                print("Sorry, that's not correct. The resulting color is {}.".format(color_codes[correct_answer] + correct_answer + "\033[0m"))
-        else:
+                print("Sorry, that's not correct.".format(color_codes + "\033[0m"))
+        if not correct_guess:
             print("You've used all your guesses. The correct answer was {}.".format(color_codes[correct_answer] + correct_answer + "\033[0m"))
 
         play_again = input("Do you want to play again? (y/n): ")
