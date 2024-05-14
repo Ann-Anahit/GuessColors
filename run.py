@@ -1,6 +1,6 @@
 import random
 
-# ANSI color escape codes
+# ANSI color escape codes, used this side https://ask.replit.com/t/how-do-i-make-colored-text-in-python/29288 for generate colors in python
 color_codes = {
     "red": "\033[91m",
     "green": "\033[92m",
@@ -72,9 +72,9 @@ def main():
             if option in color_codes:
                 print("{}. {}".format(i, color_codes[option] + option + "\033[0m"))
 
-        # Allow the player to guess five times
+        # Allow the player to guess two times
         correct_guess = False
-        for _ in range(5):
+        for _ in range(2):
             choice = input("Enter your choice (1, 2, or 3): ")
             try:
                 choice_index = int(choice) - 1
@@ -91,9 +91,11 @@ def main():
                 break
             else:
                 print("Sorry, that's not correct.")
-
+        
         if not correct_guess:
             print("You've used all your guesses. The correct answer was {}.".format(color_codes[correct_answer] + correct_answer + "\033[0m"))
+            print("Game Over!")
+            break
 
         print("Your score for this round: {}".format(round_score))  # Display round score
         print("Your total score: {}".format(total_score))  # Display total score
