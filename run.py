@@ -87,7 +87,8 @@ def main():
                 correct_guess = True
                 break
             else:
-                print("Sorry, that's not correct.".format(color_codes + "\033[0m"))
+                print("Sorry, that's not correct.")
+
         if not correct_guess:
             print("You've used all your guesses. The correct answer was {}.".format(color_codes[correct_answer] + correct_answer + "\033[0m"))
 
