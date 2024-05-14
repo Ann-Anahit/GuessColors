@@ -26,7 +26,6 @@ color_combinations = {
     ("blue", "green"): "teal",
     ("yellow", "green"): "lime",
     ("red", "orange"): "maroon",
-    ("blue", "orange"): "burnt sienna",
     ("yellow", "orange"): "amber",
     ("purple", "green"): "olive",
 }
