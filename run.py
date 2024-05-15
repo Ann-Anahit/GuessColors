@@ -71,14 +71,20 @@ def get_user_guess():
         except ValueError:
             print("Invalid choice! Please enter 1, 2, or 3.")
 
-def play_round(round_count, correct_answers):
+def play_round(round_count):
     """
     Function to play a single round of the game.
     """
     round_score = 0  # Initialize score for the current round
     incorrect_guesses = 0  # Initialize count of incorrect guesses
+    correct_answers = 0  # Initialize the count of correct answers for the round
     
     for _ in range(3):  # Play three rounds
+        # Reset variables for each round
+        correct_answers = 0
+        incorrect_guesses = 0
+        
+        round_count += 1  # Increment round count
         # Pick two random colors
         color1 = random.choice(colors)
         color2 = random.choice(colors)
@@ -117,7 +123,7 @@ def play_round(round_count, correct_answers):
                     return round_score, correct_answers
 
     return round_score, correct_answers
-
+    
 def main():
     print("Welcome to the Color Mixing Game!")
     print("Try to guess the resulting color when you mix two colors.")
