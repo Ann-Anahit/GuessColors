@@ -132,8 +132,8 @@ def main():
         print("Your score for this round: {}".format(round_score))  # Display round score
         print("Your total score: {}".format(total_score))  # Display total score
 
-        # Check if the game is over
-        if correct_answers != 3:
+       # Check if the game is over
+        if round_count % 3 == 0 and correct_answers != 3:
             game_over = True
 
         # Ask to play again after every third round
