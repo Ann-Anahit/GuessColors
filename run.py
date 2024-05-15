@@ -123,16 +123,21 @@ def main():
     play_again = 'y'
     total_score = 0  # Initialize total score
     round_count = 0  # Initialize round count
+    game_over = False  # Initialize game over flag
 
-    while play_again.lower() == 'y':
+    while play_again.lower() == 'y' and not game_over:
         round_count += 1  # Increment round count
         round_score, correct_answers = play_round(round_count)
         total_score += round_score  # Increment total score
         print("Your score for this round: {}".format(round_score))  # Display round score
         print("Your total score: {}".format(total_score))  # Display total score
 
+        # Check if the game is over
+        if correct_answers != 3:
+            game_over = True
+
         # Ask to play again after every third round
-        if round_count % 3 == 0:
+        if round_count % 3 == 0 and not game_over:
             while True:
                 play_again = input("Do you want to play again? (y/n): ")
                 if play_again.lower() in ('y', 'n'):
