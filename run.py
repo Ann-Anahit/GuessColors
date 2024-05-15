@@ -12,6 +12,9 @@ color_codes = {
     "orange": "\033[38;5;208m",
     "maroon": "\033[38;5;88m",
     "olive": "\033[38;5;58m",
+    "brown": "\033[38;5;94m",  # Added missing brown color code
+    "lime": "\033[38;5;10m",   # Added missing lime color code
+    "amber": "\033[38;5;214m"  # Added missing amber color code
 }
 
 # List of colors
