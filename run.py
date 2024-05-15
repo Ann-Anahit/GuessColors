@@ -2,13 +2,13 @@ import random
 
 # ANSI color escape codes
 color_codes = {
-    "red": "\033[91m",           # Red color
-    "green": "\033[92m",         # Green color
-    "yellow": "\033[93m",        # Yellow color
-    "blue": "\033[94m",          # Blue color
-    "purple": "\033[95m",        # Purple color
-    "teal": "\033[96m",          # Teal color
-    "white": "\033[97m",         # White color
+    "red": "\033[91m",
+    "green": "\033[92m",
+    "yellow": "\033[93m",
+    "blue": "\033[94m",
+    "purple": "\033[95m",
+    "teal": "\033[96m",
+    "white": "\033[97m",
     "orange": "\033[38;5;208m",  # Orange color
     "maroon": "\033[38;5;88m",   # Maroon color
     "olive": "\033[38;5;58m",    # Olive color
@@ -28,6 +28,9 @@ color_combinations = {
     ("red", "orange"): "maroon",
     ("yellow", "orange"): "amber",
     ("purple", "green"): "olive",
+    ("yellow", "blue"): "green",  # New color combination
+    ("green", "blue"): "teal",    # New color combination
+    ("blue", "green"): "teal",    # New color combination
 }
 
 def mix_colors(color1, color2):
@@ -137,7 +140,7 @@ def main():
         print("Your total score: {}".format(total_score))  # Display total score
 
         # Check if the player has achieved 3 correct answers
-        if correct_answers == 3:
+        if total_score % 3 == 0 and total_score > 0:
             print("You Win! Congratulations! Your score is 3/3.")
             play_again = input("Do you want to play again? (y/n): ")
             if play_again.lower() != 'y':
