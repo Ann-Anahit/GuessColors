@@ -75,6 +75,7 @@ def play_round(round_count):
     round_score = 0  # Initialize score for the current round
     incorrect_guesses = 0  # Initialize count of incorrect guesses
     correct_answers = 0  # Initialize the count of correct answers for the round
+    
     for _ in range(3):  # Play three rounds
         round_count += 1  # Increment round count
         # Pick two random colors
@@ -111,9 +112,10 @@ def play_round(round_count):
                 incorrect_guesses += 1  # Increment count of incorrect guesses
                 if incorrect_guesses == 2:
                     print("Game Over!")
+                    print("Your score for this round: {}".format(round_score))
+                    print("Your total score: {}".format(round_score))  # Assume total score is the same as round score
+                    print("Bye bye, see you soon!")
                     return round_score, correct_answers
-                else:
-                    print("The correct answer was {}.".format(color_codes[correct_answer] + correct_answer + "\033[0m"))
 
     return round_score, correct_answers
 
