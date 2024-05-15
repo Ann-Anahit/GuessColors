@@ -129,30 +129,33 @@ def main():
     play_again = 'y'
     total_score = 0  # Initialize total score
     round_count = 0  # Start the round count from 0
+    correct_answers = 0  # Initialize correct answers count
 
     while play_again.lower() == 'y':
         round_count += 1  # Increment round count
-        round_score, correct_answers = play_round(round_count)
+        round_score, correct_answers = play_round(round_count, correct_answers)
         total_score += round_score  # Increment total score
         print("Your score for this round: {}".format(round_score))  # Display round score
         print("Your total score: {}".format(total_score))  # Display total score
 
         # Check if the player has achieved 3 correct answers
-        if total_score % 3 == 0 and total_score > 0:
+        if correct_answers == 3:
             print("You Win! Congratulations! Your score is 3/3.")
             play_again = input("Do you want to play again? (y/n): ")
+            while play_again.lower() not in ('y', 'n'):
+                print("Invalid choice! Please enter 'y' or 'n'.")
+                play_again = input("Do you want to play again? (y/n): ")
             if play_again.lower() != 'y':
                 break
             round_count = 0  # Reset round count if the player chooses to play again
+            correct_answers = 0  # Reset correct answers count
 
         # Ask to play again after every third round
         if round_count % 3 == 0:
-            while True:
+            play_again = input("Do you want to play again? (y/n): ")
+            while play_again.lower() not in ('y', 'n'):
+                print("Invalid choice! Please enter 'y' or 'n'.")
                 play_again = input("Do you want to play again? (y/n): ")
-                if play_again.lower() in ('y', 'n'):
-                    break
-                else:
-                    print("Invalid choice! Please enter 'y' or 'n'.")
 
     print("Thank you for playing! See you soon!")
 
