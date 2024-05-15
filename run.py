@@ -2,13 +2,13 @@ import random
 
 # ANSI color escape codes
 color_codes = {
-    "red": "\033[91m",
-    "green": "\033[92m",
-    "yellow": "\033[93m",
-    "blue": "\033[94m",
-    "purple": "\033[95m",
-    "teal": "\033[96m",
-    "white": "\033[97m",
+    "red": "\033[91m",           # Red color
+    "green": "\033[92m",         # Green color
+    "yellow": "\033[93m",        # Yellow color
+    "blue": "\033[94m",          # Blue color
+    "purple": "\033[95m",        # Purple color
+    "teal": "\033[96m",          # Teal color
+    "white": "\033[97m",         # White color
     "orange": "\033[38;5;208m",  # Orange color
     "maroon": "\033[38;5;88m",   # Maroon color
     "olive": "\033[38;5;58m",    # Olive color
@@ -68,16 +68,20 @@ def get_user_guess():
         except ValueError:
             print("Invalid choice! Please enter 1, 2, or 3.")
 
-def play_round(round_count, correct_answers):
+def play_round(round_count):
     """
     Function to play a single round of the game.
     """
     round_score = 0  # Initialize score for the current round
     incorrect_guesses = 0  # Initialize count of incorrect guesses
+    correct_answers = 0  # Initialize the count of correct answers for the round
     
     for _ in range(3):  # Play three rounds
-        round_count += 1  # Increment round count
+        # Reset variables for each round
+        correct_answers = 0
+        incorrect_guesses = 0
         
+        round_count += 1  # Increment round count
         # Pick two random colors
         color1 = random.choice(colors)
         color2 = random.choice(colors)
@@ -124,11 +128,10 @@ def main():
     play_again = 'y'
     total_score = 0  # Initialize total score
     round_count = 0  # Start the round count from 0
-    correct_answers = 0  # Initialize correct answers count
 
     while play_again.lower() == 'y':
         round_count += 1  # Increment round count
-        round_score, correct_answers = play_round(round_count, correct_answers)
+        round_score, correct_answers = play_round(round_count)
         total_score += round_score  # Increment total score
         print("Your score for this round: {}".format(round_score))  # Display round score
         print("Your total score: {}".format(total_score))  # Display total score
@@ -140,7 +143,6 @@ def main():
             if play_again.lower() != 'y':
                 break
             round_count = 0  # Reset round count if the player chooses to play again
-            correct_answers = 0  # Reset correct answers count
 
         # Ask to play again after every third round
         if round_count % 3 == 0:
