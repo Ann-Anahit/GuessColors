@@ -65,7 +65,10 @@ def get_user_guess():
         choice = input("Enter your choice (1, 2, or 3): ")
         try:
             choice_index = int(choice) - 1
-            return choice_index
+            if choice_index in (0, 1, 2):
+                return choice_index
+            else:
+                print("Invalid choice! Please enter 1, 2, or 3.")
         except ValueError:
             print("Invalid choice! Please enter 1, 2, or 3.")
 
@@ -115,7 +118,7 @@ def play_round(round_count, correct_answers):
                     return round_score, correct_answers
 
     return round_score, correct_answers
-    
+
 def main():
     print("Welcome to the Color Mixing Game!")
     print("Try to guess the resulting color when you mix two colors.")
