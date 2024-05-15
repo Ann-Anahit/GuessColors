@@ -73,6 +73,7 @@ def play_round(round_count):
     Function to play a single round of the game.
     """
     round_score = 0  # Initialize score for the current round
+    incorrect_guesses = 0  # Initialize count of incorrect guesses
     correct_answers = 0  # Initialize the count of correct answers for the round
     for _ in range(3):  # Play three rounds
         round_count += 1  # Increment round count
@@ -107,14 +108,12 @@ def play_round(round_count):
                 break
             else:
                 print("Sorry, that's not correct.")
+                incorrect_guesses += 1  # Increment count of incorrect guesses
+                if incorrect_guesses == 2:
+                    print("Game Over!")
+                    return round_score, correct_answers
 
-        if correct_answers == 3:
-            print("You Win! Congratulations! Your score is 3/3.")
-            return round_score, correct_answers
-
-        if correct_answers != 3:
-            print("Game Over!")
-            return round_score, correct_answers
+    return round_score, correct_answers
 
 def main():
     print("Welcome to the Color Mixing Game!")
@@ -123,21 +122,20 @@ def main():
     play_again = 'y'
     total_score = 0  # Initialize total score
     round_count = 0  # Initialize round count
-    game_over = False  # Initialize game over flag
 
-    while play_again.lower() == 'y' and not game_over:
+    while play_again.lower() == 'y':
         round_count += 1  # Increment round count
         round_score, correct_answers = play_round(round_count)
         total_score += round_score  # Increment total score
         print("Your score for this round: {}".format(round_score))  # Display round score
         print("Your total score: {}".format(total_score))  # Display total score
 
-       # Check if the game is over
-        if round_count % 3 == 0 and correct_answers != 3:
-            game_over = True
+        # Check if the player has achieved 3 correct answers
+        if correct_answers == 3:
+            print("You Win! Congratulations! Your score is 3/3.")
 
         # Ask to play again after every third round
-        if round_count % 3 == 0 and not game_over:
+        if round_count % 3 == 0:
             while True:
                 play_again = input("Do you want to play again? (y/n): ")
                 if play_again.lower() in ('y', 'n'):
