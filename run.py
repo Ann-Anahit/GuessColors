@@ -1,23 +1,22 @@
 import random
 
-# ANSI color escape codes
+# Color codes for terminal output
 color_codes = {
-    "red": "\033[91m",
-    "green": "\033[92m",
-    "yellow": "\033[93m",
-    "blue": "\033[94m",
-    "purple": "\033[95m",
-    "teal": "\033[96m",
-    "white": "\033[97m",
-    "orange": "\033[38;5;208m",  # Orange color
-    "maroon": "\033[38;5;88m",   # Maroon color
-    "olive": "\033[38;5;58m",    # Olive color
+    "red": "\033[91m",        # Red color
+    "blue": "\033[94m",       # Blue color
+    "green": "\033[92m",      # Green color
+    "yellow": "\033[93m",     # Yellow color
+    "purple": "\033[95m",     # Purple color
+    "orange": "\033[33m",     # Orange color
+    "teal": "\033[96m",       # Teal color
+    "olive": "\033[32m",      # Olive color
+    "maroon": "\033[31m",     # Maroon color
 }
 
-# List of colors
+# List of available colors
 colors = list(color_codes.keys())
 
-# Dictionary mapping color combinations to the resulting color
+# Additional color combinations
 color_combinations = {
     ("red", "blue"): "purple",
     ("blue", "yellow"): "green",
@@ -34,24 +33,25 @@ def mix_colors(color1, color2):
     """
     Function to mix two colors and return the resulting color.
     """
-    # Sort the colors to handle different orderings
-    colors = tuple(sorted([color1, color2]))
-    if colors in color_combinations:
-        return color_combinations[colors]
+    if (color1, color2) in color_combinations:
+        return color_combinations[(color1, color2)]
+    elif (color2, color1) in color_combinations:
+        return color_combinations[(color2, color1)]
     else:
-        return None  # Return None if the combination is not in the dictionary
+        return None  # No valid resulting color for the given combination
+
 
 def display_round_instructions(round_count, color1, color2):
     """
-    Function to display instructions for the current round.
+    Function to display instructions for each round.
     """
-    print("Round {}: You mix {} and {}...".format(round_count, color_codes[color1] + color1 + "\033[0m", color_codes[color2] + color2 + "\033[0m"))
-    print("What color do you think you'll get?")
+    print(f"Round {round_count}: You mix {color1} and {color2}...")
 
 def display_color_options(options):
     """
-    Function to display color options for the user to guess.
+    Function to display color options for the user to choose from.
     """
+    print("What color do you think you'll get?")
     for i, option in enumerate(options, 1):
         if option in color_codes:
             print("{}. {}".format(i, color_codes[option] + option + "\033[0m"))
@@ -62,11 +62,11 @@ def get_user_guess():
     """
     while True:
         choice = input("Enter your choice (1, 2, or 3): ")
-        try:
+        if choice.isdigit():
             choice_index = int(choice) - 1
-            return choice_index
-        except ValueError:
-            print("Invalid choice! Please enter 1, 2, or 3.")
+            if 0 <= choice_index <= 2:
+                return choice_index
+        print("Invalid choice! Please enter 1, 2, or 3.")
 
 def play_round(round_count):
     """
@@ -116,17 +116,20 @@ def play_round(round_count):
     return round_score, correct_answers
 
 def main():
+    """
+    Main function to run the Color Mixing Game.
+    """
     print("Welcome to the Color Mixing Game!")
     print("Try to guess the resulting color when you mix two colors.")
 
     play_again = 'y'
     total_score = 0  # Initialize total score
     round_count = 0  # Initialize round count
-
     while play_again.lower() == 'y':
-        round_count += 1  # Increment round count
         round_score, correct_answers = play_round(round_count)
-        total_score += round_score  # Increment total score
+        total_score += round_score  # Update total score
+        round_count += 3  # Increment round count by 3
+
         print("Your score for this round: {}".format(round_score))  # Display round score
         print("Your total score: {}".format(total_score))  # Display total score
 
