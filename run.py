@@ -68,13 +68,12 @@ def get_user_guess():
         except ValueError:
             print("Invalid choice! Please enter 1, 2, or 3.")
 
-def play_round(round_count):
+def play_round(round_count, correct_answers):
     """
     Function to play a single round of the game.
     """
     round_score = 0  # Initialize score for the current round
     incorrect_guesses = 0  # Initialize count of incorrect guesses
-    correct_answers = 0  # Initialize the count of correct answers for the round
     
     for _ in range(3):  # Play three rounds
         round_count += 1  # Increment round count
