@@ -120,9 +120,9 @@ def play_round(round_count):
                 if attempt == 1:  # If this was the second attempt
                     print("Game Over!")
                     print(f"Your score for this round: {round_score}")
-                    return round_score, correct_answers
+                    return round_score, correct_answers, True  # Indicate game over
 
-    return round_score, correct_answers
+    return round_score, correct_answers, False  # Indicate game not over
 
 def main():
     print("Welcome to the Color Mixing Game!")
@@ -136,7 +136,7 @@ def main():
         correct_answers = 0  # Initialize correct answers count
 
         while correct_answers < 3:
-            round_score, new_correct_answers = play_round(round_count)
+            round_score, new_correct_answers, game_over = play_round(round_count)
             total_score += round_score  # Increment total score
             correct_answers += new_correct_answers  # Increment correct answers count
 
@@ -147,6 +147,12 @@ def main():
             if correct_answers >= 3:
                 print("You Win! Congratulations! Your score is 3/3.")
                 break
+
+            if game_over:
+                break  # Stop the game if it's over
+
+        if game_over:
+            break  # Stop asking to play again if the game is over
 
         play_again = input("Do you want to play again? (y/n): ")
         while play_again.lower() not in ('y', 'n'):
