@@ -1,3 +1,5 @@
+import random
+
 # ANSI color escape codes
 color_codes = {
     "red": "\033[91m",
