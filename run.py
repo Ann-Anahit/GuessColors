@@ -9,9 +9,9 @@ color_codes = {
     "purple": "\033[95m",
     "teal": "\033[96m",
     "white": "\033[97m",
-    "orange": "\033[38;5;208m",  # Orange color
-    "maroon": "\033[38;5;88m",   # Maroon color
-    "olive": "\033[38;5;58m",    # Olive color
+    "orange": "\033[38;5;208m", 
+    "maroon": "\033[38;5;88m",  
+    "olive": "\033[38;5;58m",    
 }
 
 # List of colors
@@ -28,9 +28,7 @@ color_combinations = {
     ("red", "orange"): "maroon",
     ("yellow", "orange"): "amber",
     ("purple", "green"): "olive",
-    ("yellow", "blue"): "green",  # New color combination
-    ("green", "blue"): "teal",    # New color combination
-    ("blue", "green"): "teal",    # New color combination
+    ("yellow", "blue"): "green",      
 }
 
 def mix_colors(color1, color2):
