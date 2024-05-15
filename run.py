@@ -148,7 +148,10 @@ def main():
                 else:
                     print("Invalid choice! Please enter 'y' or 'n'.")
 
-    print("Thank you for playing! See you soon!")
+    if game_over:
+        print("Bye bye, see you soon!")
+    else:
+        print("Thank you for playing! See you soon!")
 
 if __name__ == "__main__":
     main()
