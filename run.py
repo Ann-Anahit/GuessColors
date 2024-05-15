@@ -139,7 +139,7 @@ def main():
             play_again = input("Do you want to play again? (y/n): ")
             if play_again.lower() != 'y':
                 break
-            round_count = 0  # Reset round count if the player chooses to play again
+            round_count = 1  # Reset round count if the player chooses to play again
             correct_answers = 0  # Reset correct answers count
 
         # Ask to play again after every third round
