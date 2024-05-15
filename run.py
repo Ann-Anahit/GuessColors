@@ -124,10 +124,11 @@ def main():
 
     play_again = 'y'
     total_score = 0  # Initialize total score
-    round_count = 1  # Start the round count from 1
+    round_count = 0  # Start the round count from 0
     correct_answers = 0  # Initialize correct answers count
 
     while play_again.lower() == 'y':
+        round_count += 1  # Increment round count
         round_score, correct_answers = play_round(round_count, correct_answers)
         total_score += round_score  # Increment total score
         print("Your score for this round: {}".format(round_score))  # Display round score
@@ -139,7 +140,7 @@ def main():
             play_again = input("Do you want to play again? (y/n): ")
             if play_again.lower() != 'y':
                 break
-            round_count = 1  # Reset round count if the player chooses to play again
+            round_count = 0  # Reset round count if the player chooses to play again
             correct_answers = 0  # Reset correct answers count
 
         # Ask to play again after every third round
@@ -150,7 +151,6 @@ def main():
                     break
                 else:
                     print("Invalid choice! Please enter 'y' or 'n'.")
-        round_count += 1  # Increment round count
 
     print("Thank you for playing! See you soon!")
 
