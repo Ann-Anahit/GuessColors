@@ -128,7 +128,6 @@ def play_round(round_count):
                 print("Sorry, that's not correct.")
                 if attempt == 1:  # If this was the second attempt
                     print("Game Over!")
-                    print(f"Your score for this round: {round_score}")
                     return round_score, correct_answers, True
 
     return round_score, correct_answers, False  # Indicate game not over
@@ -160,6 +159,7 @@ def main():
                 break
 
             if game_over:
+                print(f"Your score for this round: {round_score}")
                 break  # Stop the game if it's over
 
         if game_over:

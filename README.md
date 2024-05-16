@@ -85,72 +85,50 @@ I created a flow chart. All I had to do then is follow my flow chart and code on
 
 The core feature of the game is mixing two colors together to produce a resulting color. This feature involves randomly selecting two colors from a predefined list and determining the resulting color based on predefined combinations.
 
-![](/assets/images/cc-rm-name.png)
+![Guess-Colors](assets/images/color-mixing.png)
 
 ### Displaying Instructions
 
 You implemented a function to display instructions for each round of the game. These instructions inform the player about the colors they are mixing and prompt them to guess the resulting color.
 
-![](/assets/images/cc-rm-name.png)
+![Guess-Colors](assets/images/displaying-instructions.png)
 
 ### Displaying Color Options
 
 Another function displays the available color options for the player to choose from when guessing the resulting color. This feature ensures that the player has multiple choices to select from.
 
-![](/assets/images/cc-rm-name.png)
+![Guess-Colors](assets/images/color-options.png)
 
 ### Getting User Guesses
 
 The game allows the player to guess the resulting color by selecting from the presented color options. You implemented a function to get the player's guess and validate it to ensure it's a valid choice.
 
-![](/assets/images/cc-rm-name.png)
+![Guess-Colors](assets/images/user-guesses.png)
 
 ### Playing Rounds
 
 The game consists of multiple rounds, with each round presenting the player with a new color mixing scenario. The player has multiple attempts to guess the resulting color for each round.
 
-![](/assets/images/cc-rm-name.png)
+![Guess-Colors](assets/images/playing-rounds.png)
 
 ### Scoring
 
 The player earns points for each correct guess, and the game keeps track of the total score across multiple rounds. This scoring system adds a competitive element to the game, motivating the player to guess correctly.
 
-![](/assets/images/cc-rm-name.png)
+![Guess-Colors](assets/images/score.png)
 
 ### Game Over Conditions
 
 The game ends if the player guesses incorrectly twice in a single round or if the player correctly guesses the resulting color in three rounds. These conditions determine when the game is over and whether the player wins or loses.
 
-![](/assets/images/cc-rm-name.png)
+![Guess-Colors](/assets/images/cc-rm-name.png)
 
 
 
 ### Hourly pay and employee number
 Once a contractor has selected their name and profession and confirms the information is correct, the computer brings up confirmation of their hourly pay and contractor number.
 
-![CCCCP pay](/assets/images/cc-rm-pay-number-confirmation.png)
 
-### Working dates, days and hours
-The contractor is then prompted to add the dates they worked, the number of days and the number of hours. The number of days worked was not originally included in the program but after testing it was added to avoid any confusion about the days a contractor has worked. 
-
-![CCCCP dates](/assets/images/cc-rm-incorrect-dates.png)
-
-The dates and number of days must match exactly otherwise the user cannot continue to add any further details. This avoids a contractor adding that they worked for 1-08-2023 to 7-08-2023 but they only worked 3 out of those 7 days. The contractor will then have to complete the exact number of days to continue moving forward.
-
-### Confirm information so far
-
-The contractor will be asked to confirm all the information they have submitted so far before being able to move on. 
-
-![CCCCP check](/assets/images/cc-rm-check-information.png)
-
-If anything needs to change e.g. name, professions, hours, dates etc. the contractor selects n for no.
-
-![CCCCP no selection](/assets/images/cc-rm-check-information-invalid.png)
-
-### Tax and National Insurance
-Once all information has been added the program will give a contractor a rough estimate of the tax and national insurance due, which is taken by an umbrella company they joined. The majority of self-employed contractors pay 20% tax or less so it wasn't felt necessary to include a 40% tax option for those earning more than £67,500 in a tax year. This could be added in the future if necessary.
-
-![CCCCP confirm](/assets/images/cc-rm-check-information-ok.png)
 
 ### Confirmation of information
 
@@ -242,8 +220,7 @@ Google Sheets
 - Visual Studio Code (VSC)
 - GitHub 
 - Heroku
-- Font Awesome
-- Canva for help with images
+- Affinity Publisher for help with images
 - miro.com to create flow chart
 
 ### Libraries
@@ -271,7 +248,7 @@ Other future updates are included in the TESTING.md file.
 ## Validation
 
 PEP8 - Python style guide checker imported - https://pypi.org/project/pep8/
-All code validated and where lines were showing as too long they were adjusted. Some line adjustments caused bugs in the code and it stopped working so they were left as longer lines to avoid this issue. pycodestyle . - was used in Codeanywhere terminal to list any issues.
+All code validated and where lines were showing as too long they were adjusted. Some line adjustments caused bugs in the code and it stopped working so I worked on it until the game worked again.
 
 ## Deployment
 
@@ -280,7 +257,7 @@ All code validated and where lines were showing as too long they were adjusted. 
 The Application has been deployed from GitHub to Heroku by following the steps:
 
 1. Create or log in to your account at heroku.com
-2. Create a new app, add a unique app name ( for example corri-construction-p3) and then choose your region
+2. Create a new app, add a unique app name (for example guess-colors) and then choose your region
 3. Click on create app
 4. Go to "Settings"
 5. Under Config Vars add the private API key information using key 'CRED' and into the value area copy the API key information added to the .json file.  Also add a key 'PORT' and value '8000'.
