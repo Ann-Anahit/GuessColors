@@ -33,7 +33,7 @@ The deployed project live link is [HERE](https://guess-colors-499273fe225a.herok
 
 ## Project 
 
-The aim of this project is to:
+The aim of this project:
 
 - The primary goal is to provide players with an enjoyable gaming experience. The game offers a simple yet engaging activity that can be entertaining for people of various ages.
 - Through gameplay, players can learn about color combinations and color mixing. It's a fun way to explore basic concepts of color theory and understand how different colors interact with each other.
@@ -136,7 +136,7 @@ The game ends if the player guesses incorrectly twice in a single round or if th
 
 ### Libraries
 
-- [www.stackoverfow.com](https://stackoverflow.com/questions/287871/    how-do-i-print-colored-text-to-the-terminal) - to get colors for python
+- [www.stackoverfow.com](https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal) - to get colors for python
 - [random](https://docs.python.org/3/library/random.html) - to generate random colors
 - [ChatGPT](https://chatgpt.com/) - to create color combination to the resulting colors
 
