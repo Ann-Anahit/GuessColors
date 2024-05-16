@@ -58,6 +58,7 @@ def display_round_instructions(round_count, color1, color2, user_guess):
     print("What color do you think you'll get?")
 
 # Call the function with the user_guess parameter
+round_count = 1  
 display_round_instructions(round_count, color1, color2, user_guess)
 
 def display_color_options(options):
