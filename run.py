@@ -49,7 +49,7 @@ def mix_colors(color1, color2):
     return color_combinations.get(colors)
 
 
-def display_round_instructions(round_count, color1, color2):
+def display_round_instructions(round_count, color1, color2, user_guess):
     """
     Function to display instructions for the current round.
     """
@@ -57,6 +57,8 @@ def display_round_instructions(round_count, color1, color2):
           f"{user_guess}\033[0m is the resulting color!")
     print("What color do you think you'll get?")
 
+# Call the function with the user_guess parameter
+display_round_instructions(round_count, color1, color2, user_guess)
 
 def display_color_options(options):
     """
