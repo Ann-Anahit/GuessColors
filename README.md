@@ -52,6 +52,7 @@ The aim of this project is to:
 - Developers aim to implement features that make the game intuitive to play, such as clear instructions, easy-to-understand interface elements, and responsive feedback to user actions.
 - They also strive to ensure that the game is free from technical issues and errors, providing a seamless experience for players.
 
+[Back to top](<#contents>)
 
 ### Pre development
 I created a flow chart. All I had to do then is follow my flow chart and code one area at a time before moving on to the next. 
@@ -66,6 +67,7 @@ I created a flow chart. All I had to do then is follow my flow chart and code on
 
 3 Implementing Functions: After setting up the initial data structures, you proceeded to implement the necessary functions for the game logic. This includes functions for mixing colors, displaying instructions, presenting color options, getting user guesses, playing rounds, and managing the main game loop.
 
+[Back to top](<#contents>)
 
 ## Features
 
@@ -91,7 +93,7 @@ Another function displays the available color options for the player to choose f
 
 The game allows the player to guess the resulting color by selecting from the presented color options. You implemented a function to get the player's guess and validate it to ensure it's a valid choice.
 
-![Guess-Colors](assets/images/user- guesses.png)
+![Guess-Colors](assets/images/user-guesses.png)
 
 ### Playing Rounds
 
@@ -130,17 +132,18 @@ The game ends if the player guesses incorrectly twice in a single round or if th
 - GitHub 
 - Heroku
 
+[Back to top](<#contents>)
 
 ### Libraries
 
-[www.stackoverfow.com](https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal) - to get colors for python
-[random](https://docs.python.org/3/library/random.html) - to generate random colors
-[ChatGPT](https://chatgpt.com/) - to create color combination to the resulting colors
+- [www.stackoverfow.com](https://stackoverflow.com/questions/287871/    how-do-i-print-colored-text-to-the-terminal) - to get colors for python
+- [random](https://docs.python.org/3/library/random.html) - to generate random colors
+- [ChatGPT](https://chatgpt.com/) - to create color combination to the resulting colors
 
 
 ## Testing
 
-The game has been tested and the results can be viewed [here - TESTING](TESTING.md)
+The game has been tested and the results can be viewed [here ](TESTING.md)
 
 
 ## Future Updates
@@ -164,7 +167,7 @@ The game has been tested and the results can be viewed [here - TESTING](TESTING.
 The Application has been deployed from GitHub to Heroku by following the steps:
 
 1. Create or log in to your account at heroku.com
-2. Create a new app, add a unique app name (for example guess-colors) and then choose your region
+2. Create a new app, add a unique app name (for example guess-colors) and then choose     your region
 3. Click on create app
 4. Go to "Settings"
 5. Under Config Vars add the private API key information using key 'CRED' and into the value area copy the API key information added to the .json file.  Also add a key 'PORT' and value '8000'.
@@ -175,7 +178,10 @@ The Application has been deployed from GitHub to Heroku by following the steps:
 10. If preferred, click on "Enable Automatic Deploys", which keeps the app up to date with your GitHub repository
 11. Wait for the app to build. Once ready you will see the “App was successfully deployed” message and a 'View' button to take you to your deployed link.
 
+[Back to top](<#contents>)
+
 ### Branching the GitHub Repository using GitHub Desktop and Visual Studio Code
+
 1. Go to the GitHub repository.
 2. Click on the branch button in the left hand side under the repository name.
 3. Give your branch a name.
@@ -200,3 +206,5 @@ I would like to acknowledge the following people:
 
 *   Kay Welfare - My cohort facilitator.
 *   My Code Institute Mentor Jubril Akolade.
+
+[Back to top](<#contents>)

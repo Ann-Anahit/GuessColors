@@ -26,7 +26,7 @@ It worked without issues in the above browsers except Safari.
 
 ## Validation
 
-PEP8 - Python style guide checker imported - https://pypi.org/project/pep8/ [HERE](assets/video/Pep8.mov)
+PEP8 - Python style guide checker imported - [HERE]https://pypi.org/project/pep8/ [HERE](assets/images/Validation.png)
 All code validated and where lines were showing as too long they were adjusted. Some line adjustments caused bugs in the code and it stopped working so I worked on it until the game worked again.
 
 
