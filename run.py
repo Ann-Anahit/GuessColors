@@ -159,7 +159,6 @@ def main():
                 break
 
             if game_over:
-                print(f"Your score for this round: {round_score}")
                 break  # Stop the game if it's over
 
         if game_over:
