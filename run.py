@@ -113,8 +113,7 @@ def play_round(round_count):
 
         # Determine the correct answer and two incorrect answers
         correct_answer = mix_colors(color1, color2)
-        incorrect_answers =
-        [color for color in colors if color != correct_answer]
+        incorrect_answers = [color for color in colors if color != correct_answer]
         random.shuffle(incorrect_answers)
         options = [correct_answer] + incorrect_answers[:2]
         random.shuffle(options)
