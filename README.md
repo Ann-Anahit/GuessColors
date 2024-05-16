@@ -82,20 +82,48 @@ I created a flow chart. All I had to do then is follow my flow chart and code on
 ## Features
 
 ### Color Mixing
+
 The core feature of the game is mixing two colors together to produce a resulting color. This feature involves randomly selecting two colors from a predefined list and determining the resulting color based on predefined combinations.
 
+![](/assets/images/cc-rm-name.png)
+
 ### Displaying Instructions
+
+You implemented a function to display instructions for each round of the game. These instructions inform the player about the colors they are mixing and prompt them to guess the resulting color.
+
+![](/assets/images/cc-rm-name.png)
+
+### Displaying Color Options
+
+Another function displays the available color options for the player to choose from when guessing the resulting color. This feature ensures that the player has multiple choices to select from.
+
+![](/assets/images/cc-rm-name.png)
+
+### Getting User Guesses
+
+The game allows the player to guess the resulting color by selecting from the presented color options. You implemented a function to get the player's guess and validate it to ensure it's a valid choice.
+
+![](/assets/images/cc-rm-name.png)
+
+### Playing Rounds
+
+The game consists of multiple rounds, with each round presenting the player with a new color mixing scenario. The player has multiple attempts to guess the resulting color for each round.
+
+![](/assets/images/cc-rm-name.png)
+
+### Scoring
+
+The player earns points for each correct guess, and the game keeps track of the total score across multiple rounds. This scoring system adds a competitive element to the game, motivating the player to guess correctly.
+
+![](/assets/images/cc-rm-name.png)
+
+### Game Over Conditions
+
+The game ends if the player guesses incorrectly twice in a single round or if the player correctly guesses the resulting color in three rounds. These conditions determine when the game is over and whether the player wins or loses.
 
 ![](/assets/images/cc-rm-name.png)
 
 
-Next. The contractor is asked to select their profession. An error message is displayed if an invalid letter is added:
-
-![CCCCP profession](/assets/images/cc-rm-profession-invalid.png)
-
-An opportunity to pick again if the wrong profession was selected has also been given.
-
-![CCCCP profession](/assets/images/cc-rm-profession-incorrect.png)
 
 ### Hourly pay and employee number
 Once a contractor has selected their name and profession and confirms the information is correct, the computer brings up confirmation of their hourly pay and contractor number.
