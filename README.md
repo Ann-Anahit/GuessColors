@@ -197,8 +197,6 @@ The deployed project live link is [HERE](https://guess-colors-499273fe225a.herok
 
 - Colored Console Output in Python - [here](https://www.youtube.com/watch?v=kf8kbUKeM5g)
 
-- Using colorama import - [here](https://www.youtube.com/watch?v=u51Zjlnui4Y )
-
 
 ## Acknowledgements
 

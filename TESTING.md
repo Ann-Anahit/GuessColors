@@ -28,7 +28,8 @@ It worked without issues in the above browsers except Safari.
 ## Validation
 
 PEP8 - Python style guide checker imported - [HERE](https://pypi.org/project/pep8/) 
-I used [Code Institute's validator](https://pep8ci.herokuapp.com/) [HERE](assets/images/Validation.png)to double-check my Python code. The project is without errors.
+I used [Code Institute's validator](https://pep8ci.herokuapp.com/)  to double-check my Python code. The project is without errors. ![HERE](assets/images/Validation.png)
+
 All code validated and where lines were showing as too long they were adjusted. Some line adjustments caused bugs in the code and it stopped working so I worked on it until the game worked again.
 
 
