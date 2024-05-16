@@ -131,7 +131,6 @@ else:
         print(f"Your score for this round: {round_score}")
         return round_score, correct_answers, True
 
-
     return round_score, correct_answers, False  # Indicate game not over
 
 
