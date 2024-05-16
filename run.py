@@ -117,19 +117,20 @@ def play_round(round_count):
             choice_index = get_user_guess()
             user_guess = options[choice_index]
 
-    if user_guess == correct_answer:
-        print(f"You guessed it right. {color_codes[user_guess]}"
-              f"{user_guess}\033[0m is the resulting color!")
+if user_guess == correct_answer:
+    print(f"You guessed it right. {color_codes[user_guess]}"
+          f"{user_guess}\033[0m is the resulting color!")
 
-        round_score += 1  # Increment score for correct guess
-        correct_answers += 1  # Increment correct answers count
-        break
-        else:
-            print("Sorry, that's not correct.")
-            if attempt == 1:  # If this was the second attempt
-                print("Game Over!")
-                print(f"Your score for this round: {round_score}")
-                return round_score, correct_answers, True
+    round_score += 1  # Increment score for correct guess
+    correct_answers += 1  # Increment correct answers count
+    break
+else:
+    print("Sorry, that's not correct.")
+    if attempt == 1:  # If this was the second attempt
+        print("Game Over!")
+        print(f"Your score for this round: {round_score}")
+        return round_score, correct_answers, True
+
 
     return round_score, correct_answers, False  # Indicate game not over
 
