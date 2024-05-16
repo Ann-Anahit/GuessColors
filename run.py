@@ -53,13 +53,9 @@ def display_round_instructions(round_count, color1, color2, user_guess):
     """
     Function to display instructions for the current round.
     """
-    print(f"You guessed it right. {color_codes[user_guess]}"
-          f"{user_guess}\033[0m is the resulting color!")
+    print(f"Round {round_count}: You mix {color1} and {color2}...")
     print("What color do you think you'll get?")
 
-# Call the function with the user_guess parameter
-round_count = 1  
-display_round_instructions(round_count, color1, color2, user_guess)
 
 def display_color_options(options):
     """
