@@ -1,5 +1,6 @@
 import random
 
+
 # ANSI color escape codes
 color_codes = {
     "red": "\033[91m",
@@ -111,7 +112,7 @@ def play_round(round_count):
 
         # Allow the player to guess two times
         for attempt in range(2):
-            display_round_instructions(round_count, color1, color2, options)  # Pass options instead of user_guess
+            display_round_instructions(round_count, color1, color2, options)
             display_color_options(options)
             choice_index = get_user_guess()
             user_guess = options[choice_index]
@@ -131,6 +132,7 @@ def play_round(round_count):
                     return round_score, correct_answers, True
 
     return round_score, correct_answers, False  # Indicate game not over
+
 
 def main():
     print("Welcome to the Color Mixing Game!")
