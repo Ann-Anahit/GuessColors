@@ -94,7 +94,7 @@ def play_round(round_count):
     """
     round_score = 0  # Initialize score for the current round
     incorrect_guesses = 0  # Initialize count of incorrect guesses
-    correct_answers = 0  # Initialize the count of correct answers for the round
+    correct_answers = 0  # Initialize the count of correct answers
 
     for _ in range(3):  # Play three rounds
         # Reset variables for each round
@@ -113,7 +113,8 @@ def play_round(round_count):
 
         # Determine the correct answer and two incorrect answers
         correct_answer = mix_colors(color1, color2)
-        incorrect_answers = [color for color in colors if color != correct_answer]
+        incorrect_answers =
+        [color for color in colors if color != correct_answer]
         random.shuffle(incorrect_answers)
         options = [correct_answer] + incorrect_answers[:2]
         random.shuffle(options)
@@ -128,7 +129,8 @@ def play_round(round_count):
 
             if user_guess == correct_answer:
                 print(
-                    "Congratulations! You guessed it right. {}{}{} is the resulting color!".format(
+                    "You guessed it right. {}{}{} is the resulting color!"
+                    .format(
                         color_codes[user_guess], user_guess, "\033[0m"
                     )
                 )
@@ -162,8 +164,8 @@ def main():
             round_score, correct_answers = play_round(round_count)
             total_score += round_score  # Increment total score
 
-            print("Your score for this round: {}".format(round_score))  # Display round score
-            print("Your total score: {}".format(total_score))  # Display total score
+            print("Your score for this round: {}".format(round_score))
+            print("Your total score: {}".format(total_score))
 
             # Check if the player has achieved 3 correct answers
             if correct_answers == 3:
@@ -180,4 +182,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
