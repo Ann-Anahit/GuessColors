@@ -12,6 +12,9 @@ color_codes = {
     "orange": "\033[38;5;208m",
     "maroon": "\033[38;5;88m",
     "olive": "\033[38;5;58m",
+    "brown": "\033[38;5;94m",  
+    "lime": "\033[38;5;10m",   
+    "amber": "\033[38;5;214m"  
 }
 
 # List of colors
@@ -36,32 +39,20 @@ color_combinations = {
     ("orange", "blue"): "maroon",
 }
 
-
 def mix_colors(color1, color2):
     """
     Function to mix two colors and return the resulting color.
     """
     # Sort the colors to handle different orderings
     colors = tuple(sorted([color1, color2]))
-    if colors in color_combinations:
-        return color_combinations[colors]
-    else:
-        return None  # Return None if the combination is not in the dictionary
-
+    return color_combinations.get(colors)
 
 def display_round_instructions(round_count, color1, color2):
     """
     Function to display instructions for the current round.
     """
-    print(
-        "Round {}: You mix {} and {}...".format(
-            round_count,
-            color_codes[color1] + color1 + "\033[0m",
-            color_codes[color2] + color2 + "\033[0m"
-        )
-    )
+    print(f"Round {round_count}: You mix {color_codes[color1]}{color1}\033[0m and {color_codes[color2]}{color2}\033[0m...")
     print("What color do you think you'll get?")
-
 
 def display_color_options(options):
     """
@@ -69,8 +60,7 @@ def display_color_options(options):
     """
     for i, option in enumerate(options, 1):
         if option in color_codes:
-            print("{}. {}".format(i, color_codes[option] + option + "\033[0m"))
-
+            print(f"{i}. {color_codes[option]}{option}\033[0m")
 
 def get_user_guess():
     """
@@ -87,20 +77,14 @@ def get_user_guess():
         except ValueError:
             print("Invalid choice! Please enter 1, 2, or 3.")
 
-
 def play_round(round_count):
     """
     Function to play a single round of the game.
     """
     round_score = 0  # Initialize score for the current round
-    incorrect_guesses = 0  # Initialize count of incorrect guesses
-    correct_answers = 0  # Initialize the count of correct answers
+    correct_answers = 0  # Initialize the count of correct answers for the round
 
     for _ in range(3):  # Play three rounds
-        # Reset variables for each round
-        correct_answers = 0
-        incorrect_guesses = 0
-
         round_count += 1  # Increment round count
         # Pick two random colors
         color1 = random.choice(colors)
@@ -122,30 +106,23 @@ def play_round(round_count):
         display_color_options(options)
 
         # Allow the player to guess two times
-        for _ in range(2):
+        for attempt in range(2):
             choice_index = get_user_guess()
             user_guess = options[choice_index]
 
             if user_guess == correct_answer:
-                print(
-                    "You guessed it right. {}{}{} is the resulting color!"
-                    .format(
-                        color_codes[user_guess], user_guess, "\033[0m"
-                    )
-                )
+                print(f"Congratulations! You guessed it right. {color_codes[user_guess]}{user_guess}\033[0m is the resulting color!")
                 round_score += 1  # Increment score for correct guess
                 correct_answers += 1  # Increment correct answers count
                 break
             else:
                 print("Sorry, that's not correct.")
-                incorrect_guesses += 1  # Increment count of incorrect guesses
-                if incorrect_guesses == 2:
+                if attempt == 1:  # If this was the second attempt
                     print("Game Over!")
-                    print("Your score for this round: {}".format(round_score))
-                    return round_score, correct_answers
+                    print(f"Your score for this round: {round_score}")
+                    return round_score, correct_answers, True  # Indicate game over
 
-    return round_score, correct_answers
-
+    return round_score, correct_answers, False  # Indicate game not over
 
 def main():
     print("Welcome to the Color Mixing Game!")
@@ -159,17 +136,23 @@ def main():
         correct_answers = 0  # Initialize correct answers count
 
         while correct_answers < 3:
-            round_count += 1  # Increment round count
-            round_score, correct_answers = play_round(round_count)
+            round_score, new_correct_answers, game_over = play_round(round_count)
             total_score += round_score  # Increment total score
+            correct_answers += new_correct_answers  # Increment correct answers count
 
-            print("Your score for this round: {}".format(round_score))
-            print("Your total score: {}".format(total_score))
+            print(f"Your score for this round: {round_score}")  # Display round score
+            print(f"Your total score: {total_score}")  # Display total score
 
             # Check if the player has achieved 3 correct answers
-            if correct_answers == 3:
+            if correct_answers >= 3:
                 print("You Win! Congratulations! Your score is 3/3.")
                 break
+
+            if game_over:
+                break  # Stop the game if it's over
+
+        if game_over:
+            break  # Stop asking to play again if the game is over
 
         play_again = input("Do you want to play again? (y/n): ")
         while play_again.lower() not in ('y', 'n'):
@@ -177,7 +160,6 @@ def main():
             play_again = input("Do you want to play again? (y/n): ")
 
     print("Thank you for playing! See you soon!")
-
 
 if __name__ == "__main__":
     main()
