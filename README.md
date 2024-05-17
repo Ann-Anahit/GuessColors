@@ -138,8 +138,6 @@ The game ends if the player guesses incorrectly twice in a single round or if th
 
 - [www.stackoverfow.com](https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal) - to get colors for python
 - [random](https://docs.python.org/3/library/random.html) - to generate random colors
-- [ChatGPT](https://chatgpt.com/) - to create color combination to the resulting colors
-
 
 ## Testing
 
